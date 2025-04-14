@@ -27,14 +27,6 @@ export const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const renderContent = () => {
-    if (isLoading) {
-      return <Loader />;
-    }
-
-    return <TodoList />;
-  };
-
   return (
     <>
       <div className="section">
@@ -46,7 +38,7 @@ export const App = () => {
               <TodoFilter />
             </div>
 
-            <div className="block">{renderContent()}</div>
+            <div className="block">{isLoading ? <Loader /> : <TodoList />}</div>
           </div>
         </div>
       </div>
